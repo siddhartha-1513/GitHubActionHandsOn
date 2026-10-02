@@ -6,3 +6,11 @@ jobs:
     steps:
       - name: my-step
         run: echo "Hello World!"
+      - name: run-commands
+        run: python --version
+        run: whoami
+        run: ls -la
+        run: pwd
+        
+        
+        
