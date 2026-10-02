@@ -7,10 +7,15 @@ jobs:
       - name: my-step
         run: echo "Hello World!"
       - name: run-commands
-        run: python --version
-        run: whoami
-        run: ls -la
-        run: pwd
+        run: |
+          echo "Python Version"
+          python --version
+          echo "Who AM I"
+          whoami
+          echo "List directories"
+          ls -la
+          echo "Present working directories"
+          pwd
         
         
         
