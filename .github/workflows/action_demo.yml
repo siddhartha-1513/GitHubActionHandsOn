@@ -1,11 +1,19 @@
 name: hello-world
-on: workflow_dispatch
+on: 
+  workflow_dispatch:
+    inputs:
+      username:
+        description: "Enter the name"
+        required: true
+        type: string
 jobs:
   my-job:
     runs-on: ubuntu-latest
     steps:
       - name: my-step
         run: echo "Hello World!"
+      - name: show-username
+        run: echo "Hello ${{inputs.username}}"
       - name: run-commands
         run: |
           echo "Python Version"
