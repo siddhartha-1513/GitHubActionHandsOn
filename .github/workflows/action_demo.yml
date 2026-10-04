@@ -2,10 +2,14 @@ name: hello-world
 on: 
   workflow_dispatch:
     inputs:
-      username:
-        description: "Enter the name"
-        required: true
-        type: string
+      - source_directory:
+         description: "Enter the source name"
+         required: true
+         type: string
+      - destination_directory:
+         description: "Enter the destination path"
+         required: true
+         type: string
 jobs:
   my-job:
     runs-on: ubuntu-latest
@@ -13,7 +17,9 @@ jobs:
       - name: my-step
         run: echo "Hello World!"
       - name: show-username
-        run: echo "Hello ${{inputs.username}}"
+        run: |
+          echo "Hello ${{inputs.source_directory}}"
+          echo "Hello ${{inputs.destination_directory}}"
       - name: run-commands
         run: |
           echo "Python Version"
